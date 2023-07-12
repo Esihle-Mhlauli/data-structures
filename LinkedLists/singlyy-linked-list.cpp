@@ -40,7 +40,7 @@ void addBegin(node* head,int newNodeData){
     }else{
         n->nextNode = NULL;
     }
-    head = n;
+    head->nextNode = n;
 }
 void addEnd(node* head,int newNodeData){
     node* temp = head;
@@ -55,6 +55,16 @@ void addEnd(node* head,int newNodeData){
     temp->nextNode = n;
     n->nextNode = NULL;
 
+}
+
+void printList(node* head){
+    node* temp = head;
+
+    while(temp != NULL)
+    {   
+        cout<<temp->data<<" ";
+        temp = temp->nextNode;
+    }
 }
 int main(){
 
@@ -85,6 +95,8 @@ int main(){
     //end insert
     newNodeData = 44;
     addEnd(head,newNodeData);
+
+    printList(head);
     
     return 0;
 }
