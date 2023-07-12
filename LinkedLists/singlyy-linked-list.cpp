@@ -10,7 +10,7 @@ using namespace std;
 struct node
 {
     int data = 0;
-    node *nextNode;  //type Node because it is pointing to a Node.
+    node *nextNode = NULL;  //type Node because it is pointing to a Node.
 };
 
 void addMiddle(int pos,int newNodeData, node* head){
@@ -31,8 +31,19 @@ void addMiddle(int pos,int newNodeData, node* head){
     temp->nextNode = n;
     
 }
-void addBegin(){
+void addBegin(node* head,int newNodeData){
+
+    node* n = new node;   //create new node
+    n->data = newNodeData;
+    if(head->nextNode != NULL){
+        n->nextNode = head->nextNode;  //connect list
+    }else{
+        n->nextNode = NULL;
+    }
+    head = n;
     
+
+    cout<<head->data;
 }
 void addEnd(){
     
@@ -54,9 +65,14 @@ int main(){
 
     n->nextNode = NULL;
 
+    //middle insert
     int pos = 3;
     int newNodeData = 33;
     addMiddle(pos, newNodeData, head);
+
+    //begining insert
+    newNodeData = 11;
+    addBegin(head,newNodeData);
     
     return 0;
 }
