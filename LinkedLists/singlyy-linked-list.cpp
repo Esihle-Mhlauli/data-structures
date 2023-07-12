@@ -1,7 +1,6 @@
 /**********************************************
-Author: Esihle Mhlauli
-Summary: A simple recap on singly linked lists
-         using c++.
+Author: Inserting node at the beginnig, end and 
+        middle of a list.
 ***********************************************/
 
 #include <iostream>
@@ -14,6 +13,30 @@ struct node
     node *nextNode;  //type Node because it is pointing to a Node.
 };
 
+void addMiddle(int pos,int newNodeData, node* head){
+
+    node* temp = head;
+    for(int i=0; i<pos; i++){    //traverse list until the desired insert position
+
+        if(temp->nextNode == NULL){
+            cout<<"position does not exist";
+            return;
+        }
+        temp = temp->nextNode;
+    }
+
+    node* n = new node;   //create new node
+    n->data = newNodeData;
+    n->nextNode = temp->nextNode;  //connect the list
+    temp->nextNode = n;
+    
+}
+void addBegin(){
+    
+}
+void addEnd(){
+    
+}
 int main(){
 
     node* n = new node;  //This is a new node
@@ -21,7 +44,7 @@ int main(){
     node* head = n; //This is the Head node
      n->data = 0;
 
-    for(int i=1; i<5; i++)
+    for(int i=1; i<5; i++)  
     {
         n = new node; 
         n->data = i;
@@ -30,6 +53,11 @@ int main(){
     }
 
     n->nextNode = NULL;
+
+    int pos = 3;
+    int newNodeData = 33;
+    addMiddle(pos, newNodeData, head);
     
     return 0;
 }
+
