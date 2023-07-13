@@ -25,6 +25,7 @@ void deleteMiddle(node* head, int data){
     while(curr != NULL){
         if(curr->data == data){
             prev->nextNode = curr->nextNode;
+            curr->nextNode = NULL;
             delete curr;
             return;
         }
@@ -50,6 +51,19 @@ void deleteEnd(node* head){
 
     prev->nextNode = NULL;
     delete curr;
+}
+
+node* deleteBegin(node* head){
+    node* tmp = head;
+
+    if(head == NULL){
+        cout<<"list is empty";
+        return NULL;
+    }
+    head = head->nextNode;
+    delete tmp;
+
+    return head;
 }
 
 void printList(node* head){
@@ -82,6 +96,7 @@ int main(){
     int data = 3;
     deleteMiddle(head, data);
     deleteEnd(head);
+    head = deleteBegin(head);
 
     printList(head);
 

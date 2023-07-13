@@ -31,7 +31,7 @@ void addMiddle(int pos,int newNodeData, node* head){
     temp->nextNode = n;
     
 }
-void addBegin(node* head,int newNodeData){
+node* addBegin(node* head,int newNodeData){
 
     node* n = new node;   //create new node
     n->data = newNodeData;
@@ -40,7 +40,8 @@ void addBegin(node* head,int newNodeData){
     }else{
         n->nextNode = NULL;
     }
-    head->nextNode = n;
+    head = n;
+    return head;
 }
 void addEnd(node* head,int newNodeData){
     node* temp = head;
@@ -90,7 +91,7 @@ int main(){
 
     //begining insert
     newNodeData = 11;
-    addBegin(head,newNodeData);
+    head = addBegin(head,newNodeData);
 
     //end insert
     newNodeData = 44;
