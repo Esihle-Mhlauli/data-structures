@@ -1,5 +1,5 @@
 /**********************************************
-Author: Inserting node at the beginnig, end and 
+Author: Deleting node at the beginnig, end and 
         middle of a list.
 ***********************************************/
 
@@ -16,6 +16,12 @@ struct node
 void deleteMiddle(node* head, int data){
     node* curr = head->nextNode;
     node* prev = head;
+
+    if(head == NULL){
+        cout<<"list is empty";
+        return;
+    }
+
     while(curr != NULL){
         if(curr->data == data){
             prev->nextNode = curr->nextNode;
@@ -26,6 +32,24 @@ void deleteMiddle(node* head, int data){
         curr = curr->nextNode;
     }
     cout<<"data not found";
+}
+
+void deleteEnd(node* head){
+    node* curr = head->nextNode;
+    node* prev = head;
+
+    if(head == NULL){
+        cout<<"list is empty";
+        return;
+    }
+
+    while(curr->nextNode != NULL){
+        prev = curr;
+        curr = curr->nextNode;
+    }
+
+    prev->nextNode = NULL;
+    delete curr;
 }
 
 void printList(node* head){
@@ -55,8 +79,9 @@ int main(){
 
     n->nextNode = NULL;
 
-    int data = 6;
+    int data = 3;
     deleteMiddle(head, data);
+    deleteEnd(head);
 
     printList(head);
 
