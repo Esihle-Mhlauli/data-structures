@@ -36,6 +36,24 @@ node* insertNode(node* root, int data){
         }
 return root;
 }
+bool search(node* root, int data){
+    if(root == NULL){
+        cout<<"Tree is empty";
+        return false;
+    }
+    
+    if(root->data == data){
+        return true;
+    }
+
+    if(root->data>=data){
+        return search(root->left, data);
+    }else if(root->data<=data){
+        return search(root->right,data);
+    }
+
+    return false;
+}
 
 //print tree in order
 void inorder(node* root){
@@ -57,5 +75,7 @@ int main(){
     root = insertNode(root,25);
 
     inorder(root);
+
+    cout<<"\n"<<search(root,8);
     return 0;
 }
