@@ -55,7 +55,7 @@ bool search(node* root, int data){
     return false;
 }
 
-//print tree in order
+//print tree in order (traversal)
 void inorder(node* root){
     if(root != NULL){
         inorder(root->left);
@@ -63,6 +63,28 @@ void inorder(node* root){
         inorder(root->right);
     }
 }
+
+/* PreOrder traversal
+void preorder(node* root){
+    if(root != NULL){
+        cout<<(root->data)<<"\n";
+        preorder(root->left);
+        preorder(root->right);
+    }
+}
+
+*/
+
+/* PostOrder traversal
+void postorder(node* root){
+    if(root != NULL){
+        postorder(root->left);
+        postorder(root->right);
+        cout<<(root->data)<<"\n";
+    }
+}
+
+*/
 
 int main(){
     node* root = NULL; //this is the root pointer (not the container)
