@@ -74,6 +74,16 @@ node* delete_(node* root, int data){
             root=NULL;
             return root;
         }
+        else if(root->left == NULL){ //node has right child
+            node* temp = root->right;
+            delete root;
+            return temp;
+        }
+        else if(root->right == NULL){ //node has right child
+            node* temp = root->left;
+            delete root;
+            return temp;
+        }
     }
 
 }
@@ -122,6 +132,9 @@ int main(){
 
     inorder(root);
     root = delete_(root, 12);
+    cout<<endl;
+    inorder(root);
+    root = delete_(root, 10);
     cout<<endl;
     inorder(root);
     
